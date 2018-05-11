@@ -83,6 +83,22 @@ namespace AdventureGrains
                 return "I don't understand.";
         }
 
+        async Task<string> Unlock(IRoomGrain roomGrain)
+        {
+            if (!things.Any(t => t.Name == "brass key"))
+            {
+                return "You need a key!";
+            }
+
+            var chest = await roomGrain.FindThing("chest");
+            if (chest == null)
+            {
+                return "There is nothing to unlock in this room";
+            }
+
+            return "The chest was unlocked!";
+        }
+
 
         Task IPlayerGrain.SetName(string name)
         {
@@ -244,7 +260,8 @@ namespace AdventureGrains
                 case "inv":
                 case "inventory":
                     return "You are carrying: " + string.Join(" ", things.Select(x => x.Name));
-
+                case "unlock":
+                    return await Unlock(this.roomGrain);
                 case "end":
                     return "";
             }

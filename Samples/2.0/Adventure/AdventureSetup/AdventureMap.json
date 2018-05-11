@@ -76,17 +76,18 @@
     {
       "id": 8,
       "name": "cave",
-      "description": "You are in the cave with passages to the east and west. To the north is the open field.",
+      "description": "You are in the cave with passages to the east, west and south. To the north is the open field.",
       "directions": {
         "north": 0,
         "east": 9,
-        "west": 10
+        "west": 10,
+        "south":  11
       }
     },
     {
       "id": 9,
       "name": "cave-east",
-      "description": "You are in a starnge room. It is a dead end and you can only go back the direction you came",
+      "description": "You are in a strange room. It is a dead end and you can only go back the direction you came",
       "directions": {
         "west": 8
       }
@@ -94,9 +95,17 @@
     {
       "id": 10,
       "name": "cave-east",
-      "description": "You are in a starnge room. It is a dead end and you can only go back the direction you came",
+      "description": "You are in a strange room. It is a dead end and you can only go back the direction you came",
       "directions": {
         "east": 8
+      }
+    },
+    {
+      "id": 11,
+      "name": "cave-south",
+      "description": "You are in a strange room with a chest. It is locked; maybe there is a key to unlock it",
+      "directions": {
+        "north": 8
       }
     },
     {
@@ -112,11 +121,48 @@
       "directions": {}
     }
   ],
-    "things" : [ 
-        { "id" : 0, "name" : "brass key", "article": "a", category: "key", "foundIn" : 2, "commands" : ["lock","unlock"]},
-        { "id" : 1, "name" : "knife", "article": "a", category: "weapon", "foundIn" : 3, "commands" : ["kill"]},
-        { "id" : 2, "name" : "sandwich", "article": "a", category: "food", "foundIn" : 4, "commands" : ["eat"]},
-        { "id" : 3, "name" : "glass of water", "article": "a", category: "beverage", "foundIn" : 4, "commands" : ["drink"]}
+    "things" : [
+      {
+        "id": 0,
+        "name": "brass key",
+        "article": "a",
+        category: "key",
+        "foundIn": 2,
+        "commands": [ "lock", "unlock" ]
+      },
+      {
+        "id": 1,
+        "name": "knife",
+        "article": "a",
+        category: "weapon",
+        "foundIn": 3,
+        "commands": [ "kill" ]
+      },
+      {
+        "id": 2,
+        "name": "sandwich",
+        "article": "a",
+        category: "food",
+        "foundIn": 4,
+        "commands": [ "eat" ]
+      },
+
+      {
+        "id": 3,
+        "name": "glass of water",
+        "article": "a",
+        category: "beverage",
+        "foundIn": 4,
+        "commands": [ "drink" ]
+      },
+      {
+        "id": 4,
+        "name": "chest",
+        "article": "a",
+        category: "storage",
+        "foundIn": 11,
+        "commands":  ["unlock"]
+      }
     ],
     "monsters" : [
         { "id" : 0, "name" : "An Angry Customer", "killedBy" : [1]},
